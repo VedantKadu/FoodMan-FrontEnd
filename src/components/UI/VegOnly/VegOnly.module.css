@@ -1,0 +1,28 @@
+.wrapper {
+    display: inline-flex;
+    position: relative;
+    width: 2rem;
+    height: 2rem;
+    /* background-color: rgb(184, 109, 17); */
+
+}
+
+.checkbox {
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    opacity: 0;
+    margin: auto;
+    z-index: 1;
+}
+
+.toggleon {
+    width: 2rem;
+    /* height: 2rem; */
+}
+
+.toggleoff {
+    width: 2rem;
+    object-fit: inherit;
+    /* margin-top: 6px; */
+}

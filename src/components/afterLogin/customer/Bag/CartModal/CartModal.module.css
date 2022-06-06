@@ -1,0 +1,12 @@
+.cartmodal {
+    background-color: rgb(250, 49, 49);
+    color: #FFF;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    font-size: 1rem;
+}

@@ -1,0 +1,11 @@
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+.header {
+  width: 18%;
+}
+.main {
+  width: 82%;
+}

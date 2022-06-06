@@ -1,0 +1,45 @@
+.bag-item {
+    display: flex;
+    padding: 10px 0.7rem;
+}
+
+
+.img-wrapper img {
+    width: 6rem;
+    height: 6rem;
+}
+
+
+
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-left: 10px;
+}
+
+.content-wrapper h4 {
+    margin: 0;
+    font-family: sans-serif;
+    display: inline;
+    line-height: 1.5;
+}
+
+.content-wrapper div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-wrapper div p {
+    margin: 0;
+
+}
+
+.content-wrapper div p span {
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+    color: grey;
+    margin-left: 5px;
+}
