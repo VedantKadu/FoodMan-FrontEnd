@@ -1,0 +1,127 @@
+.wrapper {
+  padding: 0 5%;
+}
+@media only screen and (max-width: 1200px) {
+  .wrapper {
+    padding: 0 3%;
+  }
+}
+.info_wrapper {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 5rem;
+}
+.tagline1 {
+  font-size: 4.5rem;
+  font-family: sans-serif;
+  margin-bottom: 1rem;
+}
+.tagline2 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  color: rgb(50, 133, 50);
+}
+.notes {
+  margin: 2rem 0;
+  width: 90%;
+  font-size: 1.2rem;
+  font-family: sans-serif;
+  line-height: 1.2;
+}
+.btn_wrapper {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.btn_customer {
+  background-color: rgb(68, 171, 240);
+  margin-right: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  font-family: sans-serif;
+  border-radius: 10px;
+}
+.btn_customer:hover {
+  background-color: rgb(21, 144, 226);
+  cursor: pointer;
+}
+.btn_customer a {
+  text-decoration: none;
+  color: black;
+}
+
+.btn_restaurent {
+  background-color: rgb(68, 171, 240);
+  padding: 0.5rem 1rem;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+.btn_restaurent:hover {
+  background-color: rgb(21, 144, 226);
+  cursor: pointer;
+}
+.btn_restaurent a {
+  text-decoration: none;
+  color: black;
+}
+
+.image {
+  width: 100%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .info {
+    padding-left: 3rem;
+  }
+  .tagline2 {
+    font-size: 4rem;
+  }
+  .tagline1 {
+    font-size: 4rem;
+  }
+  .notes {
+    margin: 1.5rem 0;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .info {
+    padding-left: 0;
+  }
+  .btn_restaurent {
+    padding: 0.5rem 0.8rem;
+  }
+  .btn_customer {
+    padding: 0.5rem 0.8rem;
+  }
+  .notes {
+    margin: 1.5rem 0;
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .info_wrapper {
+    flex-direction: column-reverse;
+  }
+  .image {
+    width: 90%;
+  }
+  .info {
+    padding: 2rem 0;
+  }
+  .tagline1 {
+    font-size: 4rem;
+  }
+  .tagline2 {
+    font-size: 4rem;
+  }
+}

@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import NotLoggedIn from './components/beforeLogin/NotLoggedIn';
+import LoggedIn from "./components/beforeLogin/LoggedIn";
+import { authSliceActions } from "./store/auth-slice";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+  const dispatch = useDispatch();
+  const loggedIn = useSelector((state) => state.logIn.loggedIn);
+  if (!loggedIn) {
+    if (localStorage.getItem("restaurentToken")) {
+      dispatch(
+        authSliceActions.setLoggedIn({ loggedIn: true, customer: false })
+      );
+    }
+    if (localStorage.getItem("customerToken")) {
+      dispatch(
+        authSliceActions.setLoggedIn({ loggedIn: true, customer: true })
+      );
+    }
+  }
+  return loggedIn ? <LoggedIn /> : <NotLoggedIn />;
+};
 
 export default App;

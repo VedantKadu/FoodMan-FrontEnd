@@ -1,0 +1,73 @@
+.loginform {
+  width: 60%;
+  height: 40%;
+  margin: 100px auto;
+  border: 2px solid rgba(0, 0, 0, 0.651);
+  border-radius: 15px;
+}
+.header {
+  text-align: center;
+  padding: 2rem 0;
+  margin: 0;
+  font-size: 2rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  max-width: 100%;
+}
+.row input {
+  width: 80%;
+  box-sizing: border-box;
+  border: none;
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+  box-shadow: inset 0px -3px 0px 0px rgba(187, 187, 187, 0.2);
+  transition: box-shadow 0.2s ease-in;
+}
+
+.row input:focus {
+  box-shadow: inset 0px -3px 0px 0px rgba(34, 193, 195, 0.7);
+  outline: none;
+}
+.row input::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+
+.row input:focus::-webkit-input-placeholder {
+  opacity: 0;
+}
+
+.row label {
+  align-self: start;
+  padding-left: 10%;
+  padding-bottom: 0.5rem;
+  color: rgba(187, 187, 187, 0.9);
+}
+.btn {
+  border-radius: 15px;
+  width: 20%;
+  min-width: 150px;
+  margin-left: 10%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  height: 40px;
+  font-size: 1.3rem;
+  color: white;
+  font-weight: 700;
+  background: rgb(10, 146, 224);
+  border: 0px;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: rgb(9, 74, 170);
+}
+.signup {
+  margin-bottom: 10px;
+  margin-left: 10%;
+  font-size: 1rem;
+}
