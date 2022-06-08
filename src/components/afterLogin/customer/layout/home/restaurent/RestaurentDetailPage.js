@@ -16,11 +16,12 @@ const RestaurentDetailPage = () => {
   const url =
     "https://www.thespruceeats.com/thmb/kFPbPBvit_2pnmUt8lhABceAM-I=/3329x3329/smart/filters:no_upscale()/goat-mutton-curry-1957594-hero-01-afaf638173cd47d595c7ad99a018cf01.jpg";
 
+  const restaurentsList = useSelector((state) => state.restaurent.hotels);
   const params = useParams();
   const dispatch = useDispatch();
   const restaurentId = params.restaurent_id;
 
-  const restaurentsList = useSelector((state) => state.restaurent.hotels);
+  // console.log(restaurentsList);
   const veg = useSelector((state) => state.filter.filter.veg);
   const wordEntered = useSelector((state) => state.filter.filter.word);
 

@@ -1,0 +1,49 @@
+.table {
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 10px;
+}
+.header {
+  background-color: rgb(170, 170, 170);
+  display: flex;
+  padding: 8px 10px;
+  border-radius: 5px;
+}
+.header .image {
+  font-weight: bold;
+  width: 10%;
+  margin: 0 2px;
+}
+.header .product {
+  font-weight: bold;
+  width: 30%;
+  margin: 0 2px;
+}
+
+.header .category {
+  width: 10%;
+  font-weight: bold;
+}
+.header .discount {
+  font-weight: bold;
+  width: 10%;
+  margin: 0 2px;
+}
+.header .mrp {
+  font-weight: bold;
+  width: 15%;
+  margin: 0 2px;
+}
+.header .status {
+  font-weight: bold;
+  width: 15%;
+  margin: 0 2px;
+}
+.header .edit {
+  font-weight: bold;
+  width: 10%;
+  margin: 0 2px;
+}

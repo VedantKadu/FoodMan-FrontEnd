@@ -13,8 +13,8 @@ let isInitial = true;
 const Customer = () => {
   const dispatch = useDispatch();
   const restaurentList = useSelector((state) => state.restaurent.hotels);
+  console.log(restaurentList);
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
 
   useEffect(() => {
     fetch("http://localhost:8080/customer/", {
@@ -30,14 +30,11 @@ const Customer = () => {
       })
       .then((resData) => {
         dispatch(RestaurentDataActions.changeData(resData.hotels));
+        dispatch(fetchCartData());
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [dispatch]);
-
-  useEffect(() => {
-    dispatch(fetchCartData());
   }, [dispatch]);
 
   useEffect(() => {
@@ -56,6 +53,7 @@ const Customer = () => {
       {restaurentList.length > 0 ? (
         <Routes>
           <Route path="/" exact element={<HomePage />} />
+          <Route path="/customer" exact element={<HomePage />} />
           <Route path="/bag" exact element={<Bag />} />
           <Route path="/account" exact element={<HomePage />} />
           <Route path="/:restaurent_id" element={<RestaurentDetailPage />} />

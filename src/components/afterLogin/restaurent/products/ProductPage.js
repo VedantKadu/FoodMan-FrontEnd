@@ -1,10 +1,10 @@
 import styles from "./ProductPage.module.css";
-import SearchIcon from "@material-ui/icons/Search";
-import Header from "../../../components/restaurent/ui/Header";
-import ProductsTable from "../../../components/restaurent/products/ProductPageItems/ProductsTable";
+import SearchIcon from "@mui/icons-material/SearchOutlined";
+import Header from "../../../UI/Header";
+import ProductsTable from "../products/ProductPageItems/ProductsTable";
 import { Fragment } from "react";
 
-import { productSearchActions } from "../../../store/productSearch-slice";
+import { productSearchActions } from "../../../../store/productSearch-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";

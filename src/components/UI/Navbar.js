@@ -8,14 +8,24 @@ import styles from "./Navbar.module.css";
 // image imports
 import logo_img from "../../assets/hamburger.jpg";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
+import AccountModal from "../UI/AccountModal";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
+import { customeraccountModalActions } from "../../store/customerAccountModal-slice";
 // import { authSliceActions } from "../../../../store/auth-slice";
 
 const Navbar = (props) => {
   const logIn = useSelector((state) => state.logIn.loggedIn);
+  const customerAccountModalView = useSelector(
+    (state) => state.customeraccountModal.view
+  );
   const dispatch = useDispatch();
   const history = useNavigate();
+
+  const CustomerAccountModalHandler = () => {
+    dispatch(customeraccountModalActions.setView());
+    console.log(customerAccountModalView);
+  };
 
   return (
     <React.Fragment>
@@ -56,7 +66,7 @@ const Navbar = (props) => {
                     </NavLink>
                   </div>
 
-                  <div>
+                  <div onClick={CustomerAccountModalHandler}>
                     <NavLink
                       to="/account"
                       activeClassName={styles.active}
@@ -68,6 +78,9 @@ const Navbar = (props) => {
                       Account
                     </NavLink>
                   </div>
+                  {customerAccountModalView && (
+                    <AccountModal onClick={CustomerAccountModalHandler} />
+                  )}
                 </div>
               ) : (
                 <div className={styles["icon-container"]}>

@@ -1,0 +1,59 @@
+.wrapper{
+    width: 254px;
+    margin-top: 60px;
+    top: 25px;
+    right: 10px;
+    outline: 0;
+    position: absolute;
+    border-radius: 6px;
+    box-shadow: 0 6px 20px 0 rgba(26,24,30,.16);
+    z-index: 100;
+    opacity: 10;
+    background-color: white;
+}
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 20;
+
+  }
+  
+.content{
+    position: relative;
+    padding: 8px;
+}
+
+.main{
+    display: grid;
+    grid-gap: 4px;
+    gap: 4px;
+}
+.switch{
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+.main-items{
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.main-items:hover{
+    background-color: rgba(223, 211, 211, 0.384);
+}
+.text{
+    
+    margin: 5px;
+    margin-left: 10px;
+}
+.store{
+    margin: 5px;
+    margin-left: 10px;
+    font-weight: bold;
+}

@@ -1,0 +1,43 @@
+.grid-item {
+  width: 25%;
+  list-style-type: none;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+.header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 5px;
+}
+.content {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+.image {
+  width: 20%;
+  height: 20%;
+}
+.info {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10px;
+}
+.group {
+  display: flex;
+  flex-direction: column;
+}
+.method {
+  background-color: rgb(245, 206, 98);
+  color: rgb(252, 152, 4);
+  border-radius: 3px;
+}
+.footer {
+  border-top: 1px solid #9e9d9d;
+}
+.details-link {
+  text-decoration: none;
+}
