@@ -3,24 +3,36 @@ import styles from "./CustomerSignUp.module.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-// const useStyles = makeStyles((theme) => ({
-//   root: {
-//     "& .MuiTextField-root": {
-//       margin: theme.spacing(1),
-//     },
-//   },
-//   address: {
-//     "& > *": {
-//       margin: theme.spacing(4),
-//     },
-//   },
-// }));
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const CustomerSignUp = () => {
+  const [open, setOpen] = useState(false);
+  const [err, setErr] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (!err) {
+      navigate("/customer");
+    }
+
+    if (reason === "clickaway") {
+      return;
+    }
+    setErr(false);
+    setOpen(false);
+  };
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -45,7 +57,7 @@ const CustomerSignUp = () => {
     // console.log(user);
     event.preventDefault();
     fetch("http://localhost:8080/customer/signup", {
-      method: "POST",
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
@@ -64,9 +76,8 @@ const CustomerSignUp = () => {
     })
       .then((res) => {
         if (res.status === 422) {
-          throw new Error(
-            "Validation failed. Make sure the email address isn't used yet!"
-          );
+          setErr(true);
+          handleClick();
         }
         if (res.status !== 200 && res.status !== 201) {
           console.log("Error!");
@@ -76,7 +87,7 @@ const CustomerSignUp = () => {
       })
       .then((resData) => {
         console.log("Successfull", resData);
-        navigate("/customer");
+        handleClick();
       })
       .catch((err) => {
         console.log(err);
@@ -85,6 +96,25 @@ const CustomerSignUp = () => {
 
   return (
     <div className={styles["Reg-container"]}>
+      {err && (
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "25vw" }}>
+            Email Address Already Exist!!
+          </Alert>
+        </Snackbar>
+      )}
+      {!err && (
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "25vw" }}
+          >
+            User Signup Successfull!!
+          </Alert>
+        </Snackbar>
+      )}
+
       <div className={styles["form-container"]}>
         <h1>Fill Details To Sign Up</h1>
         <form>

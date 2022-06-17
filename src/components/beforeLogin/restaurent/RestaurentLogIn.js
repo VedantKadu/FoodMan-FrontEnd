@@ -4,8 +4,29 @@ import { Link, useNavigate } from "react-router-dom";
 import styles from "../customer/CustomerLogIn.module.css";
 import { authSliceActions } from "../../../store/auth-slice";
 import { useDispatch } from "react-redux";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const RestaurentLogIn = () => {
+  const [open, setOpen] = useState(false);
+  const [wrong, setWrong] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+    setWrong(false);
+  };
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -33,12 +54,12 @@ const RestaurentLogIn = () => {
       }),
     })
       .then((res) => {
-        if (res.status === 422) {
-          throw new Error("Validation failed.");
+        if (res.status === 401) {
+          throw new Error("No User Found");
         }
-        if (res.status !== 200 && res.status !== 201) {
-          console.log("Error!");
-          throw new Error("Could not authenticate you!");
+        if (res.status === 402) {
+          setWrong(true);
+          throw new Error("Wrong User Credentials");
         }
         return res.json();
       })
@@ -51,12 +72,26 @@ const RestaurentLogIn = () => {
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
+        handleClick();
       });
   };
 
   return (
     <div className={styles.loginform}>
+      {!wrong && (
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "25vw" }}>
+            No User Found!!
+          </Alert>
+        </Snackbar>
+      )}
+      {wrong && (
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "25vw" }}>
+            Invalid User Credentials!!
+          </Alert>
+        </Snackbar>
+      )}
       <h2 className={styles.header}>Login</h2>
       <form autoComplete="off">
         <div className={styles.row}>

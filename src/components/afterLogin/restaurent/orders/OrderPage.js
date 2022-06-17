@@ -3,18 +3,18 @@ import React from "react";
 import { Link, useLocation } from "react-router-dom";
 
 //Files imports
-import Header from "../../../components/restaurent/ui/Header";
+import Header from "../../../UI/Header";
 // import OrderTable from "../../../components/restaurent/orders/OrderPageItems/OrderTable";
 // import OTGrid from "../../../components/restaurent/orders/OrderPageItems/Grid/OTGrid";
 // import DummyOrders from "./../../Components/Orders/DummyOrders";
-import Button from "../../../components/restaurent/ui/Button";
+import Button from "../../../UI/Button";
 import styles from "./OrderPage.module.css";
 // import OrderDetailPage from "../../../components/restaurent/orders/OrderDetailPage";
 
 // Material UI imports
-import SearchIcon from "@material-ui/icons/Search";
-import ViewListIcon from "@material-ui/icons/ViewList";
-import AppsIcon from "@material-ui/icons/Apps";
+import SearchIcon from "@mui/icons-material/SearchOutlined";
+import ViewListIcon from "@mui/icons-material/ViewListOutlined";
+import AppsIcon from "@mui/icons-material/AppsOutlined";
 
 // Actions imports
 // import { OrdersearchActions } from "./../../Store/OrderSearch-slice";

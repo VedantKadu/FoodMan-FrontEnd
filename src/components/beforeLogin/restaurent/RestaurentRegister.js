@@ -3,11 +3,36 @@ import styles from "../customer/CustomerSignUp.module.css";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const RestaurentRegister = () => {
+  const [open, setOpen] = useState(false);
+  const [err, setErr] = useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (!err) {
+      navigate("/restaurent");
+    }
+
+    if (reason === "clickaway") {
+      return;
+    }
+    setErr(false);
+    setOpen(false);
+  };
+
   const navigate = useNavigate();
 
   const [user, setUser] = useState({
@@ -65,15 +90,34 @@ const RestaurentRegister = () => {
         return res.json();
       })
       .then((resData) => {
-        navigate("/restaurent");
+        handleClick();
       })
       .catch((err) => {
-        console.log(err);
+        setErr(true);
+        handleClick();
       });
   };
 
   return (
     <div className={styles["Reg-container"]}>
+      {err && (
+        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
+          <Alert onClose={handleClose} severity="error" sx={{ width: "25vw" }}>
+            Email Address Already Exist!!
+          </Alert>
+        </Snackbar>
+      )}
+      {!err && (
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "25vw" }}
+          >
+            User Signup Successfull!!
+          </Alert>
+        </Snackbar>
+      )}
       <div className={styles["form-container"]}>
         <h1>Fill Details To Sign Up</h1>
         <form>
